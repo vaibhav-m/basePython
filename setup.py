@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="django-project-template",
+    name="djprotemplate",
     version="0.0.1",
     url='http://github.com/hashedin/django-project-template',
     license='BSD',

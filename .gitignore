@@ -2,6 +2,7 @@
 *.pyo
 .project
 .pydevproject
+.pydevproject.bak
 .installed.cfg
 bin
 out
