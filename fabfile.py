@@ -1,11 +1,16 @@
-from fabric.api import task, run
+from fabric.api import task, run, local
 
 @task()
 def docs_gen():
-    run("bin/sphinxbuilder")
+    '''Generates Documents'''
+    local("bin/sphinxbuilder")
 
-def docs_package():
-    run("echo Packaging Docs")
+@task()
+def runserver():
+    '''Runs Django Server'''
+    local("bin/django runserver")
 
-def django_start(project_name="defaultproject"):
-    run("bin/django-admin.py startproject --pythonpath=./src %s src" % project_name)
+@task()
+def lint():
+    '''Runs Test'''
+    local('bin/pylint --rcfile=etc/lint.rc --disable=RP0101 djprotemplate')

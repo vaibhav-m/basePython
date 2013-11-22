@@ -9,5 +9,5 @@ setup(
     author='Anshuman Singh',
     packages=find_packages('src'),
     package_dir={'': 'src'},
-    install_requires=['setuptools', 'Django', 'Fabric'],
+    install_requires=['setuptools', 'Django'],
 )
