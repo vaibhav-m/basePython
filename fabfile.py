@@ -1,5 +1,8 @@
 from fabric.api import task, run, local
 
+COVERAGE_ENABLED = False
+PROJECT_PACKGE = 'djprotemplate'
+
 @task()
 def docs_gen():
     '''Generates Documents. Picks sources from docs folder.'''
@@ -13,12 +16,25 @@ def runserver():
 @task()
 def lint():
     '''Reports Pylint Errors & Warnings for Python files'''
-    local('bin/pylint --rcfile=etc/lint.rc djprotemplate')
+    local('bin/pylint --rcfile=etc/lint.rc %s' % PROJECT_PACKGE)
+
+@task()
+def coverage():
+    '''Enables Coverage. Used for test targets'''
+    global COVERAGE_ENABLED
+    COVERAGE_ENABLED = True
+
 
 @task()
 def test_all():
     '''Runs All Tests in src and tests folders'''
-    local('bin/test test')
+    options = ['--with-progressive']
+
+    if COVERAGE_ENABLED:
+        options.append('--with-coverage')
+        options.append('--cover-package=%s' % PROJECT_PACKGE)
+
+    local('bin/test test %s' % ' '.join(options))
 
 @task()
 def test_integration():
