@@ -1,5 +1,12 @@
 # Django settings for djprotemplate project.
 
+import os
+
+PROJECT_DIR = os.path.split(os.path.split(os.path.abspath(__file__))[0])[0]
+STATIC_DIR = os.path.join(PROJECT_DIR, "src/static")
+TEMPLATE_DIR = os.path.join(PROJECT_DIR, "src/templates")
+OUT_DIR = os.path.join(PROJECT_DIR, "out")
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -11,13 +18,13 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': '',                      # Or path to database file if using sqlite3.
+        'ENGINE': 'django.db.backends.',  # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': '',  # Or path to database file if using sqlite3.
         # The following settings are not used with sqlite3:
         'USER': '',
         'PASSWORD': '',
-        'HOST': '',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
-        'PORT': '',                      # Set to empty string for default.
+        'HOST': '',  # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+        'PORT': '',  # Set to empty string for default.
     }
 }
 
@@ -83,7 +90,8 @@ STATICFILES_FINDERS = (
 )
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = 'lx$z3k6311w9wb576r#6q+2cui)zw%%g$vjje8u^!^dkyh7kap'
+# Replace this with a randomly generated secret
+SECRET_KEY = None
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
