@@ -6,6 +6,7 @@ Its a work in progress and expected to evolve further. The motivation to do this
 using Maven for Java projects.
 
 ### Project Setup
+1. ```git clone``` this repository.
 2. Run ```python bootstrap.py```
 3. Run ```bin/buildout```
 5. Run ```bin/fab -l``` for a list of common supported commands.
@@ -41,11 +42,14 @@ download-cache = <HOME-DIR>/.buildout/dlcache
 
 ### Project Structure & Customizations
 
-```buildout.cfg``` is the config to install eggs and generate scripts in bin folder.
-```fabfile.py``` contains fabric tasks. You can modify it to add your own.
-```etc/lint.rc``` contains pylint configuration.
-```etc/jshint.json``` contains jshint settings.
+```buildout.cfg``` is the config to install eggs and generate scripts in bin folder.<br/>
+```fabfile.py``` contains fabric tasks. You can modify it to add your own.<br/>
+```etc/lint.rc``` contains pylint configuration.<br/>
+```etc/jshint.json``` contains jshint settings.<br/>
 ```tests``` contains tests organized in unit, integration and ui packages.
+
+Each of the above can be modified and customized as much as you want. If you implement something generally 
+useful, please contribute it back.
 
 
 ### TODOs
