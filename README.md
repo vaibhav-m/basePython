@@ -29,6 +29,12 @@ using Maven for Java projects.
 **Note**: Whenever running a command **always** prefix it with bin or else your system wide installation would be used.
 **Note**: For running tests along with coverage, use ```bin/fab coverage test_unit``` etc.
 
+### Project Dependencies
+Runtime project dependencies should be added in ```setup.py```. That is the standard python way. However, ```buildout.cfg``` 
+also has multiple parts and dependencies installed using ```recipe = zc.recipe.egg```. Build or Test only dependencies can 
+be add here.
+
+
 ### Faster Builds
 
 Keep the following setting in default buildout config at ```~/.buildout/default.cfg```.
