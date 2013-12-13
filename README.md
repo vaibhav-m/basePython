@@ -7,9 +7,11 @@ using Maven for Java projects.
 
 ### Project Setup
 1. ```git clone``` this repository.
-2. Run ```python bootstrap.py```
-3. Run ```bin/buildout```
-5. Run ```bin/fab -l``` for a list of common supported commands.
+2. Run ```python bootstrap.py```.
+3. Edit ```project-name``` in ```buildout.cfg``` to your project name.
+4. Set ```name``` in setup.py to the project name too. Add any python dependencies in ```install_requires```.
+5. Run ```bin/buildout```
+6. Run ```bin/fab -l``` for a list of common supported commands.
 
 
 ### Supported Commands
