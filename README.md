@@ -84,6 +84,8 @@ download-cache = <HOME-DIR>/.buildout/dlcache
 Each of the above can be modified and customized as much as you want. If you implement something generally 
 useful, please contribute it back.
 
+### FAQs - https://github.com/hashedin/django-project-template/wiki/FAQs
+
 
 ### TODOs
 Contributions and ideas are welcome. These are some ideas we would like to implement.
