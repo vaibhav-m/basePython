@@ -11,8 +11,33 @@ using Maven for Java projects.
 3. Edit ```project-name``` in ```buildout.cfg``` to your project name.
 4. Set ```name``` in setup.py to the project name too. Add any python dependencies in ```install_requires```.
 5. Run ```bin/buildout```
-6. Run ```bin/fab -l``` for a list of common supported commands.
+7. Create Django Project ```bin/buildout install start-django-project```
+8. Create base Fabfile ```bin/buildout install fab-template```
+9. Run ```bin/fab -l``` for a list of common supported commands.
+10. You would want to add ```fabfile.py``` and ```src/<your-project>``` to source control.
 
+The above steps would be needed one time for setting up a new project and generating the project structure. Once done, subsequent builds on new machines are just standard buildout builds i.e.
+```sh
+    python bootstrap.py
+    bin/buildout
+```
+
+#### Making sure it all works
+There are a couple of sample tests in ```tests/unit``` and ```tests/integration``` folders that should run correctly on invoking the following commands. 
+
+```sh
+$ bin/fab test_integration
+> ----------------------------------------------------------------------
+> Ran 1 test in 0.008s
+>
+> OK
+
+$ bin/fab test_unit
+> ----------------------------------------------------------------------
+> Ran 2 tests in 0.001s
+> 
+> OK
+```
 
 ### Supported Commands
 

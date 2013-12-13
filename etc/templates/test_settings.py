@@ -1,5 +1,5 @@
 # pylint: disable=W0401,W0614
-from settings import *
+from dev_settings import *
 import os
 
 DATABASES['default']['ENGINE'] = 'django.db.backends.sqlite3'
