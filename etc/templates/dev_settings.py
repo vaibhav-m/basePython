@@ -3,9 +3,11 @@ import os
 from settings import *
 
 PROJECT_DIR = os.path.split(os.path.split(os.path.abspath(__file__))[0])[0]
-STATIC_DIR = os.path.join(PROJECT_DIR, "src/static")
-TEMPLATE_DIR = os.path.join(PROJECT_DIR, "src/templates")
-OUT_DIR = os.path.join(PROJECT_DIR, "out")
+BASE_DIR = os.path.join(PROJECT_DIR, os.pardir)
+STATIC_DIR = os.path.join(BASE_DIR, "src/static")
+TEMPLATE_DIR = os.path.join(BASE_DIR, "src/templates")
+OUT_DIR = os.path.join(BASE_DIR, "out")
+
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
