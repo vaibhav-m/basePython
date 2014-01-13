@@ -1,13 +1,17 @@
+# Ignore generated directories
+/bin/
+/config/
+/lib/buildout/**
+/out/
+
+# Ignore generated files
 *.pyc
 *.pyo
+*.orig
+src/*.egg-info
+
+# Ignore other specific files
+.coverage
 .project
 .pydevproject
 .pydevproject.bak
-.installed.cfg
-.coverage
-bin
-out
-src/*.egg-info
-lib/buildout
-eggs
-dlcache
