@@ -7,11 +7,12 @@ from boto.s3.key import Key
 
 COVERAGE_ENABLED = False
 PROJECT_PACKGE = '${project-name}'
-BUCKET_NAME='bucket_name' #Replace this with the correct bucket alloted for your project, ask from admin
+#Replace bucket_name, application_name, environment_name
+#with the correct values alloted for your project
+BUCKET_NAME = 'bucket_name'
 FILE_NAME = 'build.zip'
-version = "build_"+str(int(time.time()))
-APPLICATION_NAME = 'application_name' #Replace this with the elastic beanstalk application, ask from admin
-ENVIRONMENT_NAME = 'environment_name'#Replace this with the elastic beanstalk dev environment name, ask from admin
+APPLICATION_NAME = 'application_name'
+ENVIRONMENT_NAME = 'environment_name'
 
 
 def _ensure_dir(path):
@@ -95,14 +96,14 @@ def test(package=''):
 @task()
 def deploy_to_dev_environment():
     version = "build_"+str(int(time.time()))
-    upload_to_s3(BUCKET_NAME,version,FILE_NAME)
-    create_version(APPLICATION_NAME,version)
-    update_environment(ENVIRONMENT_NAME,version)
+    upload_to_s3(BUCKET_NAME, version, FILE_NAME)
+    create_version(APPLICATION_NAME, version)
+    update_environment(ENVIRONMENT_NAME, version)
 
 @task()
 def create_new_version(version):
-    upload_to_s3(BUCKET_NAME,version,FILE_NAME)
-    create_version(APPLICATION_NAME,version)
+    upload_to_s3(BUCKET_NAME, version, FILE_NAME)
+    create_version(APPLICATION_NAME, version)
 
 def upload_to_s3(bucket_name, key, file_name):
     conn = boto.connect_s3()
@@ -114,8 +115,11 @@ def upload_to_s3(bucket_name, key, file_name):
 
 def create_version(application, version):
     beanstalk = boto.connect_beanstalk()
-    beanstalk.create_application_version(application, version, s3_bucket=BUCKET_NAME, s3_key=version)
+    beanstalk.create_application_version(application, version,
+                                         s3_bucket=BUCKET_NAME,
+                                         s3_key=version)
 
 def update_environment(environment, version):
     beanstalk = boto.connect_beanstalk()
-    beanstalk.update_environment(environment_name=environment,version_label=version)
+    beanstalk.update_environment(environment_name=environment,
+                                 version_label=version)
