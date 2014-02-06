@@ -15,6 +15,7 @@ using Maven for Java projects.
 8. Create base Fabfile ```bin/buildout install fab-template```
 9. Run ```bin/fab -l``` for a list of common supported commands.
 10. You would want to add ```fabfile.py``` and ```src/<your-project>``` to source control.
+11. (Optional) If you want to add elasticbeanstalk configuration, run ```bin/buildout install elasticbeanstalk-config```
 
 The above steps would be needed one time for setting up a new project and generating the project structure. Once done, subsequent builds on new machines are just standard buildout builds i.e.
 ```sh
