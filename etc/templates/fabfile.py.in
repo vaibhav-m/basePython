@@ -107,7 +107,7 @@ def create_new_version(version):
 
 def upload_to_s3(bucket_name, key, file_name):
     conn = boto.connect_s3()
-    bucket = conn.get_bucket(bucket_name)
+    bucket = conn.get_bucket(bucket_name,validate=False)
     k = Key(bucket)
     k.key = key
     k.set_contents_from_filename(file_name)
