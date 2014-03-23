@@ -44,6 +44,7 @@ $ bin/fab test_unit
 ### Supported Commands
 
 ```
+    check             Runs all checks. Report in out/summary.html. Useful for CI.
     coverage          Enables Coverage. Used for test targets
     docs_gen          Generates Documents. Picks sources from docs folder.
     lint_js           Reports Pylint Errors & Warnings for Python files
@@ -53,6 +54,9 @@ $ bin/fab test_unit
     test_integration  Runs All Tests in tests/integration package
     test_unit         Runs All Tests in tests/unit package
     uml_gen           Generates Package Dependency Diagrams. Assumes Graphviz.
+
+    create_new_version         Beanstalk - Creates a build for the provided version
+    deploy_to_dev_environment  Beanstalk - Deploys to Dev Environment
 ```
 
 **Note**: Whenever running a command **always** prefix it with bin or else your system wide installation would be used.
