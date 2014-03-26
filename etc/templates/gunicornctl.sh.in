@@ -12,6 +12,7 @@ case "$1" in
         -w ${workers} \
         -p ${project-pid} \
         --log-file=/${project-log} \
+        -b ${bind-address} \
         ${project-settings}
     ;;
   stop)
