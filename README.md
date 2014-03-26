@@ -15,6 +15,8 @@ using Maven for Java projects.
 8. Create base Fabfile ```bin/buildout install fab-template```
 9. Run ```bin/fab -l``` for a list of common supported commands.
 10. You would want to add ```fabfile.py``` and ```src/<your-project>``` to source control.
+11. (Optional-elasticbeanstalk) If you want to add elasticbeanstalk configuration, run ```bin/buildout install elasticbeanstalk-config```
+12. (Optional-elasticbeanstalk)You also need to change the bucket_name, application_name, enviornment_name in the fabfile.py
 
 The above steps would be needed one time for setting up a new project and generating the project structure. Once done, subsequent builds on new machines are just standard buildout builds i.e.
 ```sh
@@ -42,6 +44,7 @@ $ bin/fab test_unit
 ### Supported Commands
 
 ```
+    check             Runs all checks. Report in out/summary.html. Useful for CI.
     coverage          Enables Coverage. Used for test targets
     docs_gen          Generates Documents. Picks sources from docs folder.
     lint_js           Reports Pylint Errors & Warnings for Python files
@@ -51,6 +54,9 @@ $ bin/fab test_unit
     test_integration  Runs All Tests in tests/integration package
     test_unit         Runs All Tests in tests/unit package
     uml_gen           Generates Package Dependency Diagrams. Assumes Graphviz.
+
+    create_new_version         Beanstalk - Creates a build for the provided version
+    deploy_to_dev_environment  Beanstalk - Deploys to Dev Environment
 ```
 
 **Note**: Whenever running a command **always** prefix it with bin or else your system wide installation would be used.
