@@ -8,14 +8,15 @@ using Maven for Java projects.
 ### Project Setup
 1. ```git clone``` this repository.
 2. Run ```python bootstrap.py```.
-3. Edit ```project-name``` in ```buildout.cfg``` to your project name.
+3. Edit ```project-name``` in ```buildout.cfg``` to your project name. [If you are planning to add ```newrelic``` then add ```licence``` of new-relic in buildout.cfg]
 4. Set ```name``` in setup.py to the project name too. Add any python dependencies in ```install_requires```.
 5. Run ```bin/buildout```
-7. Create Django Project ```bin/buildout install start-django-project```
-8. Create base Fabfile ```bin/buildout install fab-template```
-9. Run ```bin/fab -l``` for a list of common supported commands.
-10. You would want to add ```fabfile.py``` and ```src/<your-project>``` to source control.
-11. (Optional-elasticbeanstalk) If you want to add elasticbeanstalk configuration, run ```bin/buildout install elasticbeanstalk-config```
+6. Create Django Project ```bin/buildout install start-django-project```
+7. Create base Fabfile ```bin/buildout install fab-template```
+8. Run ```bin/fab -l``` for a list of common supported commands.
+9. You would want to add ```fabfile.py``` and ```src/<your-project>``` to source control.
+10. (Optional-elasticbeanstalk without newrelic) If you want to add elasticbeanstalk configuration without newrelic, run ```bin/buildout install elasticbeanstalk-setup```
+11. (Optional-elasticbeanstalk with newrelic) If you want to add elasticbeanstalk configuration with newrelic, run ```bin/buildout install elasticbeanstalk-setup-with-newrelic```
 12. (Optional-elasticbeanstalk)You also need to change the bucket_name, application_name, enviornment_name in the fabfile.py
 
 The above steps would be needed one time for setting up a new project and generating the project structure. Once done, subsequent builds on new machines are just standard buildout builds i.e.
