@@ -15,8 +15,8 @@ using Maven for Java projects.
 7. Create base Fabfile ```bin/buildout install fab-template```
 8. Run ```bin/fab -l``` for a list of common supported commands.
 9. You would want to add ```fabfile.py``` and ```src/<your-project>``` to source control.
-10. (Optional-elasticbeanstalk without newrelic) If you want to add elasticbeanstalk configuration without newrelic, run ```bin/buildout install elasticbeanstalk-config```
-11. (Optional-elasticbeanstalk with newrelic) If you want to add elasticbeanstalk configuration without newrelic, run ```bin/buildout install elasticbeanstalk-config-newrelic```
+10. (Optional-elasticbeanstalk without newrelic) If you want to add elasticbeanstalk configuration without newrelic, run ```bin/buildout install elasticbeanstalk-setup```
+11. (Optional-elasticbeanstalk with newrelic) If you want to add elasticbeanstalk configuration with newrelic, run ```bin/buildout install elasticbeanstalk-setup-with-newrelic```
 12. (Optional-elasticbeanstalk)You also need to change the bucket_name, application_name, enviornment_name in the fabfile.py
 
 The above steps would be needed one time for setting up a new project and generating the project structure. Once done, subsequent builds on new machines are just standard buildout builds i.e.
