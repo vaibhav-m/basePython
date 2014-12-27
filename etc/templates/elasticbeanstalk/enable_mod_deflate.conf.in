@@ -15,7 +15,7 @@
     AddOutputFilterByType DEFLATE image/jpeg
 
     # Level of compression (Highest 9 - Lowest 1)
-    DeflateCompressionLevel 9
+    DeflateCompressionLevel 2
 
     # Netscape 4.x has some problems.
     BrowserMatch ^Mozilla/4 gzip-only-text/html
