@@ -8,12 +8,12 @@ set -e
 
 case "$1" in
   start)
-    ${project-dir}/bin/gunicorn_django -D \
+    ${project-dir}/bin/gunicorn -D \
         -w ${workers} \
         -p ${project-pid} \
         --log-file=/${project-log} \
         -b ${bind-address} \
-        ${project-settings}
+        ${project-wsgi}
     ;;
   stop)
     kill `cat ${project-pid}`

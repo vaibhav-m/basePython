@@ -54,7 +54,7 @@ def runserver():
 def lint_py():
     '''Reports PyLint Errors & Warnings for Python files'''
     return _execute('bin/pylint --rcfile=etc/lint.rc --output-format={0} {1}'
-                    .format(format, PROJECT_PACKGE))
+                    .format("text", PROJECT_PACKGE))
 
 
 @task()
