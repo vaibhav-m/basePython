@@ -1,4 +1,4 @@
 bootstrap:
   - python bootstrap.py
   - bin/buildout
-entrypoint: bin/django runserver
+  - bin/django runserver
